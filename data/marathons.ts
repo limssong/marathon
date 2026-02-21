@@ -24,7 +24,7 @@ export const marathons: Marathon[] = [
   {
     id: "1",
     title: "서울마라톤",
-    image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&h=400&fit=crop",
+    image: "https://cdn.imweb.me/upload/S202212018302e57ef05c1/f7406b0c5a154.png",
     date: "2025-11-02",
     registrationDate: "2025-08-01",
     registrationEndDate: "2025-09-15",
@@ -52,7 +52,7 @@ export const marathons: Marathon[] = [
   {
     id: "3",
     title: "대구국제마라톤",
-    image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&h=400&fit=crop",
+    image: "https://daegumarathon.daegu.go.kr/img/main_20260222.jpg",
     date: "2025-04-06",
     registrationDate: "2025-01-10",
     registrationEndDate: "2025-02-28",
@@ -65,7 +65,7 @@ export const marathons: Marathon[] = [
   {
     id: "4",
     title: "인천아시아드마라톤",
-    image: "https://images.unsplash.com/photo-1513593771513-7b58b6c4af38?w=600&h=400&fit=crop",
+    image: "https://www.incheonmarathon.kr/record_st_01.jpg",
     date: "2025-10-12",
     registrationDate: "2025-07-01",
     registrationEndDate: "2025-09-05",
@@ -92,7 +92,7 @@ export const marathons: Marathon[] = [
   {
     id: "6",
     title: "제주국제마라톤",
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop",
+    image: "https://www.jejumarathon.com/images/main/popup_2025_fesEnd.jpg",
     date: "2025-12-07",
     registrationDate: "2025-09-01",
     registrationEndDate: "2025-10-20",
@@ -132,7 +132,7 @@ export const marathons: Marathon[] = [
   {
     id: "9",
     title: "광주김대중컵마라톤",
-    image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&h=400&fit=crop",
+    image: "https://www.gwangju.go.kr/home/www/images/1748219696991.jpg",
     date: "2025-11-16",
     registrationDate: "2025-08-15",
     registrationEndDate: "2025-10-10",
@@ -158,7 +158,7 @@ export const marathons: Marathon[] = [
   {
     id: "11",
     title: "한강 10K 러닝",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
+    image: "https://portal.sports.or.kr/UploadDir/photobank/sports_one/front_img/2026_01-01_0617.jpg",
     date: "2025-05-18",
     registrationDate: "2025-04-01",
     registrationEndDate: "2025-05-10",
@@ -227,7 +227,7 @@ export const marathons: Marathon[] = [
   {
     id: "16",
     title: "서울마라톤 2026",
-    image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&h=400&fit=crop",
+    image: "https://cdn.imweb.me/upload/S202212018302e57ef05c1/f7406b0c5a154.png",
     date: "2026-11-01",
     registrationDate: "2026-08-01",
     registrationEndDate: "2026-09-15",
@@ -255,7 +255,7 @@ export const marathons: Marathon[] = [
   {
     id: "18",
     title: "대구국제마라톤 2026",
-    image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&h=400&fit=crop",
+    image: "https://daegumarathon.daegu.go.kr/img/main_20260222.jpg",
     date: "2026-04-05",
     registrationDate: "2026-01-10",
     registrationEndDate: "2026-02-28",
@@ -268,7 +268,7 @@ export const marathons: Marathon[] = [
   {
     id: "19",
     title: "인천아시아드마라톤 2026",
-    image: "https://images.unsplash.com/photo-1513593771513-7b58b6c4af38?w=600&h=400&fit=crop",
+    image: "https://www.incheonmarathon.kr/record_st_01.jpg",
     date: "2026-10-11",
     registrationDate: "2026-07-01",
     registrationEndDate: "2026-09-05",
@@ -295,7 +295,7 @@ export const marathons: Marathon[] = [
   {
     id: "21",
     title: "제주국제마라톤 2026",
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop",
+    image: "https://www.jejumarathon.com/images/main/popup_2025_fesEnd.jpg",
     date: "2026-12-06",
     registrationDate: "2026-09-01",
     registrationEndDate: "2026-10-20",
@@ -335,7 +335,7 @@ export const marathons: Marathon[] = [
   {
     id: "24",
     title: "광주김대중컵마라톤 2026",
-    image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&h=400&fit=crop",
+    image: "https://www.gwangju.go.kr/home/www/images/1748219696991.jpg",
     date: "2026-11-15",
     registrationDate: "2026-08-15",
     registrationEndDate: "2026-10-10",
@@ -375,7 +375,7 @@ export const marathons: Marathon[] = [
   {
     id: "27",
     title: "한강 10K 러닝 2026",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
+    image: "https://portal.sports.or.kr/UploadDir/photobank/sports_one/front_img/2026_01-01_0617.jpg",
     date: "2026-05-17",
     registrationDate: "2026-04-01",
     registrationEndDate: "2026-05-10",
@@ -388,7 +388,7 @@ export const marathons: Marathon[] = [
   {
     id: "28",
     title: "제26회 인천국제하프마라톤",
-    image: "https://images.unsplash.com/photo-1513593771513-7b58b6c4af38?w=600&h=400&fit=crop",
+    image: "https://incheonmarathon.co.kr/assets/imgs/main_top.jpg",
     date: "2026-03-22",
     registrationDate: "2026-01-05",
     registrationEndDate: "2026-03-21",
@@ -404,7 +404,7 @@ export const marathons: Marathon[] = [
   {
     id: "29",
     title: "제14회 김포한강마라톤",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
+    image: "https://gimporun.com/assets/imgs/main_top.jpg",
     date: "2026-03-29",
     registrationDate: "2026-01-26",
     registrationEndDate: "2026-03-28",
