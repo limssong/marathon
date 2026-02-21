@@ -30,8 +30,15 @@ function formatDate(dateStr: string, endDate?: string, endNote?: string) {
   return formatted;
 }
 
+function isRegistrationClosed(marathon: Marathon): boolean {
+  if (marathon.registrationClosed) return true;
+  const today = new Date().toISOString().slice(0, 10);
+  const endDate = marathon.registrationEndDate || marathon.registrationDate;
+  return today > endDate;
+}
+
 export function MarathonCard({ marathon }: MarathonCardProps) {
-  const isClosed = marathon.registrationClosed;
+  const isClosed = isRegistrationClosed(marathon);
 
   return (
     <a

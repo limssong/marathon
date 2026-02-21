@@ -129,7 +129,22 @@ export default function HomePage() {
             )
           )
             .sort(([a], [b]) => Number(b) - Number(a))
-            .map(([year, yearMarathons]) => (
+            .map(([year, yearMarathons]) => {
+              const today = new Date().toISOString().slice(0, 10);
+              const getRegistrationStatus = (m: (typeof marathons)[0]) => {
+                if (m.registrationClosed) return 2;
+                const endDate = m.registrationEndDate || m.registrationDate;
+                if (today >= m.registrationDate && today <= endDate) return 0;
+                if (today < m.registrationDate) return 1;
+                return 2;
+              };
+              const sortedYearMarathons = [...yearMarathons].sort((a, b) => {
+                const statusA = getRegistrationStatus(a);
+                const statusB = getRegistrationStatus(b);
+                if (statusA !== statusB) return statusA - statusB;
+                return new Date(a.date).getTime() - new Date(b.date).getTime();
+              });
+              return (
               <section key={year}>
                 <ScrollReveal>
                   <h2 className="mb-4 text-xl font-bold text-foreground">
@@ -137,14 +152,15 @@ export default function HomePage() {
                   </h2>
                 </ScrollReveal>
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  {yearMarathons.map((marathon, idx) => (
+                  {sortedYearMarathons.map((marathon, idx) => (
                     <ScrollReveal key={marathon.id} delay={idx * 60}>
                       <MarathonCard marathon={marathon} />
                     </ScrollReveal>
                   ))}
                 </div>
               </section>
-            ))}
+              );
+            })}
         </div>
         {filteredAndSortedMarathons.length === 0 && (
           <div className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed py-16 text-center">
