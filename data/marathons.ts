@@ -398,4 +398,4 @@ export const marathons: Marathon[] = [
 
 export const regions = ["전체", "서울", "부산", "대구", "인천", "광주", "대전", "경기", "강원", "경북", "제주"] as const;
 export const distances = ["전체", "5K", "10K", "21K", "42K", "기타"] as const;
-export const sortOptions = ["날짜순", "이름순", "거리순", "지역순"] as const;
+export const sortOptions = ["신청접수순", "날짜순", "이름순", "거리순", "지역순"] as const;
