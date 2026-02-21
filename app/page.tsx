@@ -8,12 +8,26 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 import { Footprints } from "lucide-react";
 
 export default function HomePage() {
+  const [search, setSearch] = useState("");
   const [region, setRegion] = useState("전체");
   const [distance, setDistance] = useState("전체");
   const [sortBy, setSortBy] = useState("신청접수순");
 
   const filteredAndSortedMarathons = useMemo(() => {
     let result = [...marathons];
+
+    // 검색 필터
+    if (search.trim()) {
+      const query = search.trim().toLowerCase();
+      result = result.filter(
+        (m) =>
+          m.title.toLowerCase().includes(query) ||
+          m.location.toLowerCase().includes(query) ||
+          m.region.toLowerCase().includes(query) ||
+          m.organizer.toLowerCase().includes(query) ||
+          (m.description?.toLowerCase().includes(query) ?? false)
+      );
+    }
 
     // 지역 필터
     if (region !== "전체") {
@@ -66,7 +80,7 @@ export default function HomePage() {
     }
 
     return result;
-  }, [region, distance, sortBy]);
+  }, [search, region, distance, sortBy]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
@@ -86,9 +100,11 @@ export default function HomePage() {
             </div>
           </div>
           <MarathonFilters
+            search={search}
             region={region}
             distance={distance}
             sortBy={sortBy}
+            onSearchChange={setSearch}
             onRegionChange={setRegion}
             onDistanceChange={setDistance}
             onSortChange={setSortBy}
@@ -136,7 +152,7 @@ export default function HomePage() {
               조건에 맞는 마라톤이 없습니다
             </p>
             <p className="mt-2 text-sm text-muted-foreground">
-              필터를 변경해 보세요
+              검색어 또는 필터를 변경해 보세요
             </p>
           </div>
         )}

@@ -8,6 +8,10 @@ export interface Marathon {
   endDate?: string;
   registrationDate: string;
   registrationEndDate?: string;
+  /** 선착순 마감 등 날짜가 아닌 종료 조건 표시용 */
+  registrationEndNote?: string;
+  /** 신청 마감 여부 (선착순 조기 마감 등) */
+  registrationClosed?: boolean;
   location: string;
   region: string;
   distance: MarathonDistance;
@@ -383,6 +387,38 @@ export const marathons: Marathon[] = [
   },
   {
     id: "28",
+    title: "제26회 인천국제하프마라톤",
+    image: "https://images.unsplash.com/photo-1513593771513-7b58b6c4af38?w=600&h=400&fit=crop",
+    date: "2026-03-22",
+    registrationDate: "2026-01-05",
+    registrationEndDate: "2026-03-21",
+    registrationEndNote: "15,000명 선착순 마감",
+    registrationClosed: true,
+    location: "인천문학경기장",
+    region: "인천",
+    distance: "21K",
+    organizer: "인천일보",
+    website: "https://incheonmarathon.co.kr",
+    description: "1/5(월)~15,000명 선착순 마감, Half·10Km·5Km",
+  },
+  {
+    id: "29",
+    title: "제14회 김포한강마라톤",
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
+    date: "2026-03-29",
+    registrationDate: "2026-01-26",
+    registrationEndDate: "2026-03-28",
+    registrationEndNote: "7,000명 선착순 마감",
+    registrationClosed: true,
+    location: "김포종합운동장",
+    region: "경기",
+    distance: "42K",
+    organizer: "김포시체육회",
+    website: "https://gimporun.com",
+    description: "1/26 14:00부터 선착순 7,000명, Full·10Km·5Km",
+  },
+  {
+    id: "30",
     title: "부산 5K 펀런 2026",
     image: "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=600&h=400&fit=crop",
     date: "2026-06-13",
