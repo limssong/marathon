@@ -153,7 +153,7 @@ export default function HomePage() {
                 </ScrollReveal>
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {sortedYearMarathons.map((marathon, idx) => (
-                    <ScrollReveal key={marathon.id} delay={idx * 60}>
+                    <ScrollReveal key={marathon.id} delay={Math.floor(idx / 3) * 80}>
                       <MarathonCard marathon={marathon} />
                     </ScrollReveal>
                   ))}
