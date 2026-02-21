@@ -64,7 +64,7 @@ export function MarathonCard({ marathon }: MarathonCardProps) {
             </Badge>
             {isClosed && (
               <Badge variant="destructive" className="font-semibold">
-                마감
+                신청마감
               </Badge>
             )}
           </div>
