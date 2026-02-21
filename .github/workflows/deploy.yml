@@ -39,6 +39,7 @@ jobs:
       - name: Build with Next.js
         env:
           NEXT_PUBLIC_BASE_PATH: marathon
+          NEXT_PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io
           NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
         run: pnpm run build
 
