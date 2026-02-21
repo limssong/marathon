@@ -60,7 +60,7 @@ export const marathons: Marathon[] = [
     region: "대구",
     distance: "42K",
     organizer: "대구광역시",
-    website: "https://www.daegumarathon.com",
+    website: "https://daegumarathon.daegu.go.kr",
   },
   {
     id: "4",
@@ -263,7 +263,7 @@ export const marathons: Marathon[] = [
     region: "대구",
     distance: "42K",
     organizer: "대구광역시",
-    website: "https://www.daegumarathon.com",
+    website: "https://daegumarathon.daegu.go.kr",
   },
   {
     id: "19",
