@@ -39,45 +39,28 @@ function isRegistrationClosed(marathon: Marathon): boolean {
   return today > endDate;
 }
 
-export function MarathonCard({ marathon, priority }: MarathonCardProps) {
+export function MarathonCard({ marathon, priority: _priority }: MarathonCardProps) {
   const isClosed = isRegistrationClosed(marathon);
-  const altText = `${marathon.title} - ${marathon.region} ${marathon.distance} 마라톤 대회 일정`;
+  const hasWebsite = Boolean(marathon.website?.trim());
+  const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(`${marathon.title} 마라톤`)}`;
 
-  return (
-    <a
-      href={marathon.website}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`block h-full transition-transform hover:shadow-lg ${isClosed ? "hover:scale-[1.01] opacity-70 hover:opacity-80" : "hover:scale-[1.02]"}`}
-    >
-      <Card
+  const cardContent = (
+    <Card
         className={`h-full overflow-hidden border-2 transition-colors ${
           isClosed ? "border-muted bg-muted/20" : "hover:border-primary/50"
         }`}
       >
-        <div className="relative aspect-video w-full overflow-hidden bg-muted">
-          <img
-            src={marathon.image}
-            alt={altText}
-            width={600}
-            height={338}
-            loading={priority ? "eager" : "lazy"}
-            fetchPriority={priority ? "high" : "auto"}
-            decoding="async"
-            className={`h-full w-full object-cover ${isClosed ? "opacity-80" : ""}`}
-          />
-          <div className="absolute left-3 top-3 flex gap-2">
-            <Badge variant="secondary" className="font-semibold">
-              {marathon.distance}
+        <div className="flex items-center gap-2 px-4 pt-4">
+          <Badge variant="secondary" className="font-semibold">
+            {marathon.distance}
+          </Badge>
+          {isClosed && (
+            <Badge variant="destructive" className="font-semibold">
+              신청마감
             </Badge>
-            {isClosed && (
-              <Badge variant="destructive" className="font-semibold">
-                신청마감
-              </Badge>
-            )}
-          </div>
+          )}
         </div>
-        <div className="bg-primary px-4 py-3 text-primary-foreground">
+        <div className="bg-primary mx-4 mt-3 rounded-lg px-4 py-3 text-primary-foreground">
           <div className="flex items-center gap-2">
             <ClipboardList className="h-5 w-5 shrink-0" />
             <div>
@@ -108,12 +91,30 @@ export function MarathonCard({ marathon, priority }: MarathonCardProps) {
           </div>
         </CardContent>
         <CardFooter className="border-t pt-4">
-          <span className="flex items-center gap-2 text-sm font-medium text-primary">
-            대회 사이트 바로가기
-            <ExternalLink className="h-4 w-4" />
-          </span>
+          {hasWebsite ? (
+            <span className="flex items-center gap-2 text-sm font-medium text-primary">
+              대회 사이트 바로가기
+              <ExternalLink className="h-4 w-4" />
+            </span>
+          ) : (
+            <span className="flex items-center gap-2 text-sm font-medium text-primary">
+              구글에서 검색하기
+              <ExternalLink className="h-4 w-4" />
+            </span>
+          )}
         </CardFooter>
       </Card>
+  );
+
+  const href = hasWebsite ? marathon.website : googleSearchUrl;
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`block h-full transition-transform hover:shadow-lg ${isClosed ? "hover:scale-[1.01] opacity-70 hover:opacity-80" : "hover:scale-[1.02]"}`}
+    >
+      {cardContent}
     </a>
   );
 }
