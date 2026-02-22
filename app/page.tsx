@@ -112,7 +112,12 @@ export default function HomePage() {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-8">
+      <main
+        id="main-content"
+        className="container mx-auto px-4 py-8"
+        aria-label="마라톤 대회 목록"
+      >
+        <h2 className="sr-only">마라톤 대회 일정</h2>
         <p className="mb-6 text-muted-foreground">
           총 {filteredAndSortedMarathons.length}개의 마라톤 대회
         </p>
@@ -145,16 +150,19 @@ export default function HomePage() {
                 return new Date(a.date).getTime() - new Date(b.date).getTime();
               });
               return (
-              <section key={year}>
+              <section key={year} aria-labelledby={`year-${year}`}>
                 <ScrollReveal>
-                  <h2 className="mb-4 text-xl font-bold text-foreground">
-                    {year}년
-                  </h2>
+                  <h3 id={`year-${year}`} className="mb-4 text-xl font-bold text-foreground">
+                    {year}년 마라톤 대회
+                  </h3>
                 </ScrollReveal>
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {sortedYearMarathons.map((marathon, idx) => (
                     <ScrollReveal key={marathon.id} delay={Math.floor(idx / 3) * 80}>
-                      <MarathonCard marathon={marathon} />
+                      <MarathonCard
+                        marathon={marathon}
+                        priority={idx < 3}
+                      />
                     </ScrollReveal>
                   ))}
                 </div>

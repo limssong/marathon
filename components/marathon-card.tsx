@@ -7,6 +7,8 @@ import { Calendar, MapPin, Route, ExternalLink, ClipboardList } from "lucide-rea
 
 interface MarathonCardProps {
   marathon: Marathon;
+  /** LCP 개선: 상단 3개 카드에 true 권장 */
+  priority?: boolean;
 }
 
 function formatDate(dateStr: string, endDate?: string, endNote?: string) {
@@ -37,8 +39,9 @@ function isRegistrationClosed(marathon: Marathon): boolean {
   return today > endDate;
 }
 
-export function MarathonCard({ marathon }: MarathonCardProps) {
+export function MarathonCard({ marathon, priority }: MarathonCardProps) {
   const isClosed = isRegistrationClosed(marathon);
+  const altText = `${marathon.title} - ${marathon.region} ${marathon.distance} 마라톤 대회 일정`;
 
   return (
     <a
@@ -55,7 +58,12 @@ export function MarathonCard({ marathon }: MarathonCardProps) {
         <div className="relative aspect-video w-full overflow-hidden bg-muted">
           <img
             src={marathon.image}
-            alt={marathon.title}
+            alt={altText}
+            width={600}
+            height={338}
+            loading={priority ? "eager" : "lazy"}
+            fetchPriority={priority ? "high" : "auto"}
+            decoding="async"
             className={`h-full w-full object-cover ${isClosed ? "opacity-80" : ""}`}
           />
           <div className="absolute left-3 top-3 flex gap-2">
@@ -81,9 +89,9 @@ export function MarathonCard({ marathon }: MarathonCardProps) {
           </div>
         </div>
         <CardHeader className="pb-2">
-          <h3 className="line-clamp-2 text-lg font-bold leading-tight">
+          <h4 className="line-clamp-2 text-lg font-bold leading-tight">
             {marathon.title}
-          </h3>
+          </h4>
         </CardHeader>
         <CardContent className="space-y-2 pb-4">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
