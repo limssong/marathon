@@ -96,11 +96,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${baseUrl}/`,
   },
-  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
-    verification: {
-      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
-    },
-  }),
+  verification: {
+    google:
+      process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ||
+      "9u9niVkBHATSJUnppJaxggLcLJHwztwUYmbOQa2te1U",
+  },
   category: "sports",
   other: {
     "format-detection": "telephone=no",
